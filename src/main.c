@@ -12,16 +12,10 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
-
-int main(int argc, char** argv) {
-    if ((argc < 2) || (argv == NULL) || *(argv + 1) == NULL) {
-        print_e("bad arg");
-        return 1;
-    }
-
+int hexdump_file(const char* file_name, int flags) {
+    ASSERT_STRING_RET(file_name, -1)
     int file_des = -1;
     struct stat file_stat;
-    char* file_name = *(argv + 1);
     uint8_t* file_ptr = NULL;
 
     if (stat(file_name, &file_stat) < 0) {
@@ -49,4 +43,12 @@ int main(int argc, char** argv) {
     close(file_des);
 
     return 0;
+}
+
+int main(int argc, char** argv) {
+    if ((argc < 2) || (argv == NULL) || *(argv + 1) == NULL) {
+        print_e("bad arg");
+        return 1;
+    }
+    return hexdump_file(*(argv + 1), 0);
 }
