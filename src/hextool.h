@@ -13,6 +13,7 @@
 extern "C" {
 #endif /* __cplusplus */
 
+int hextool(int argc, char** argv);
 
 #ifdef __cplusplus
 }

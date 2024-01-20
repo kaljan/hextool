@@ -43,6 +43,8 @@ TOOLS_SOURCES = \
 
 C_SOURCES = \
 	$(TOOLS_SOURCES) \
+	$(SRC_DIR)/hextool_opt.c \
+	$(SRC_DIR)/hextool.c \
 	$(SRC_DIR)/main.c
 
 
@@ -51,11 +53,7 @@ C_SOURCES = \
 # -------------------------------------------------------------------
 C_INCLUDES = \
 	-I/usr/lib/x86_64-linux-gnu/dbus-1.0/include \
-	-I$(THIRD_PARTY_DIR)/cJSON \
 	-I$(TOOLS_DIR)/inc \
-	-I$(USBD_DIR)/inc \
-	-I$(DEVICE_DIR)/inc \
-	-I$(COMMON_DIR)/inc \
 	-I$(SRC_DIR)
 
 # -------------------------------------------------------------------
